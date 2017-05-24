@@ -26,32 +26,6 @@ public class HomeController {
 
 	@Autowired
 	private IHome homeService ;
-	
-	
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		binder.setValidator(new CatVoValidator());
-	}
-	/**
-	 * spring validator
-	 * http://localhost:8080/web/showCat -> {"color":"null"}
-	 * @param catVo
-	 * @param result
-	 * @return
-	 */
-	@RequestMapping(value="showCat",method=RequestMethod.POST)
-	public ModelAndView showCat(@RequestBody @Validated CatVo catVo , BindingResult result ){
-		ModelAndView mav = new ModelAndView();
-		if(result.hasErrors()) {
-			mav.setViewName("invalid");
-			mav.addObject("message", result.getFieldError().getDefaultMessage());
-			return mav;
-		}
-		mav.setViewName("showMessage");
-		mav.addObject("message", catVo.getColor());
-		return mav;
-	}
-	
 	/**
 	 * hibernate validator JSR303
 	 * http://localhost:8080/web/toHome -> {"version1":"v1.1.0","host":"192.168.168.1"}
