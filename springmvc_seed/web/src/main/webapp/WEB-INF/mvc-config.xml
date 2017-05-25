@@ -22,11 +22,11 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- SpringMVC @ResponseBody and @RequestBody support begin 
+	<!-- SpringMVC @ResponseBody and @RequestBody support begin for spring 3.2.3
 	request for application/json
 	-->
-	<bean id="byteArrayHttpMessageConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"></bean>
-	<bean id="mappingJacksonHttpMessageConverter"
+	<!-- <bean id="byteArrayHttpMessageConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"></bean> -->
+	<!-- <bean id="mappingJacksonHttpMessageConverter"
 		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
 		<property name="supportedMediaTypes">
 			<list>
@@ -34,15 +34,24 @@
 				<value>application/json;charset=UTF-8</value>
 			</list>
 		</property>
-	</bean>
-	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">	
+	</bean> -->
+	<!-- <bean id="mappingJacksonJsonView"
+		class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+				<value>application/json;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean> -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">	
 		<property name="messageConverters">
 			<list>
 				<ref bean="byteArrayHttpMessageConverter" />
 				<ref bean="mappingJacksonHttpMessageConverter" />
 			</list>
 		</property>
-	</bean>
+	</bean> -->
 	<!-- SpringMVC @ResponseBody and @RequestBody end -->
 	
 </beans>

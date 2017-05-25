@@ -24,7 +24,8 @@
 
 
 		<!-- Spring -->
-		<spring-framework.version>3.2.3.RELEASE</spring-framework.version>
+		<!-- <spring-framework.version>3.2.3.RELEASE</spring-framework.version> -->
+		<spring-framework.version>4.3.8.RELEASE</spring-framework.version>
 
 		<!-- Hibernate / JPA -->
 		<hibernate.version>4.2.1.Final</hibernate.version>
@@ -40,7 +41,7 @@
 		<lombok.version>1.16.16</lombok.version>
 
 		<!-- jackson for HTTP Status [415] – [Unsupported Media Type] -->
-		<jackson.version>2.4.3</jackson.version>
+		<jackson.version>2.8.8</jackson.version>
 
 	</properties>
 
@@ -122,7 +123,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- <dependency>
+		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
 			<version>${jackson.version}</version>
@@ -131,10 +132,10 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
-		</dependency> -->
+		</dependency>
 
-		<!-- SpringMVC @ResponseBody and @RequestBody support -->
-		<dependency>
+		<!-- SpringMVC @ResponseBody and @RequestBody support for spring 3.2.3-->
+		<!-- <dependency>
 		    <groupId>org.codehaus.jackson</groupId>
 		    <artifactId>jackson-core-asl</artifactId>
 		    <version>1.9.13</version>
@@ -143,7 +144,7 @@
 		    <groupId>org.codehaus.jackson</groupId>
 		    <artifactId>jackson-mapper-asl</artifactId>
 		    <version>1.9.13</version>
-		</dependency>
+		</dependency> -->
 		
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
 		<dependency>
