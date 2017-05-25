@@ -8,4 +8,6 @@
 	<!-- Uncomment and add your base-package here: <context:component-scan base-package="org.springframework.samples.service"/> -->
 	<!-- 默认引用同一目录下，无论是否在一个工程中。'spring/...' -->
 	<import resource="../application-service2-config.xml" />
+	<!-- spring security -->
+	<import resource="application-security.xml" />
 </beans>

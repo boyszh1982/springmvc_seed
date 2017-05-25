@@ -25,7 +25,8 @@
 
 		<!-- Spring -->
 		<!-- <spring-framework.version>3.2.3.RELEASE</spring-framework.version> -->
-		<spring-framework.version>4.3.8.RELEASE</spring-framework.version>
+		<spring-framework.version>4.3.5.RELEASE</spring-framework.version>
+		<spring-security.version>4.2.2.RELEASE</spring-security.version>
 
 		<!-- Hibernate / JPA -->
 		<hibernate.version>4.2.1.Final</hibernate.version>
@@ -46,7 +47,23 @@
 	</properties>
 
 	<dependencies>
-
+		<!-- spring security -->
+		<dependency>
+		    <groupId>commons-logging</groupId>
+		    <artifactId>commons-logging</artifactId>
+		    <version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+		
 		<!-- Spring MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -134,26 +151,19 @@
 			<version>${jackson.version}</version>
 		</dependency>
 
-		<!-- SpringMVC @ResponseBody and @RequestBody support for spring 3.2.3-->
-		<!-- <dependency>
-		    <groupId>org.codehaus.jackson</groupId>
-		    <artifactId>jackson-core-asl</artifactId>
-		    <version>1.9.13</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.codehaus.jackson</groupId>
-		    <artifactId>jackson-mapper-asl</artifactId>
-		    <version>1.9.13</version>
-		</dependency> -->
-		
+		<!-- SpringMVC @ResponseBody and @RequestBody support for spring 3.2.3 -->
+		<!-- <dependency> <groupId>org.codehaus.jackson</groupId> <artifactId>jackson-core-asl</artifactId> 
+			<version>1.9.13</version> </dependency> <dependency> <groupId>org.codehaus.jackson</groupId> 
+			<artifactId>jackson-mapper-asl</artifactId> <version>1.9.13</version> </dependency> -->
+
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
 		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-validator</artifactId>
-		    <version>5.3.5.Final</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.3.5.Final</version>
 		</dependency>
-		
-		
+
+
 	</dependencies>
 
 
