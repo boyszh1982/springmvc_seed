@@ -54,4 +54,11 @@
 	</bean> -->
 	<!-- SpringMVC @ResponseBody and @RequestBody end -->
 	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/version/*"/>
+			<bean class="com.nameless.web.interceptor.HomeInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
 </beans>
