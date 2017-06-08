@@ -3,8 +3,16 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
-	<http />
-
+	<!-- 登录失败跳转 -->
+	<b:bean id="jsonEntryPoint" class="com.nameless.web.security.JsonEntryPoint">
+		<b:property name="url" value="/901"></b:property>
+	</b:bean>
+	
+	<!-- ROLE_USER 过滤的URL -->
+	<http entry-point-ref="jsonEntryPoint">
+		<intercept-url pattern="/version/*" access="ROLE_USER"/>
+	</http>
+	
 	<user-service>
 		<user name="user" password="password" authorities="ROLE_USER" />
 	</user-service>

@@ -26,6 +26,21 @@ public class HomeController {
 
 	@Autowired
 	private IHome homeService ;
+	
+	/**
+	 * 测试在service中使用interceptor
+	 * spring-security 没有生效，配置如此，见spring-security.xml
+	 * interceptor 没有生效，不对啊？
+	 * @return
+	 */
+	@RequestMapping("doServiceInterceptor")
+	public @ResponseBody Object doServiceInterceptor(){
+		HomeVo homeVo = new HomeVo();
+		homeVo.setHost("11111");
+		homeVo.setVersion("AAAAA");
+		return homeService.toHome(homeVo);
+	}
+	
 	/**
 	 * hibernate validator JSR303
 	 * http://localhost:8080/web/toHome -> {"version1":"v1.1.0","host":"192.168.168.1"}
