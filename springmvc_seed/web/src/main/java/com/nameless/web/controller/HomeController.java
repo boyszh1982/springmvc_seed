@@ -36,8 +36,21 @@ public class HomeController {
 	@RequestMapping("doServiceInterceptor")
 	public @ResponseBody Object doServiceInterceptor(){
 		HomeVo homeVo = new HomeVo();
-		homeVo.setHost("11111");
-		homeVo.setVersion("AAAAA");
+		homeVo.setHost("127.0.0.1");
+		homeVo.setVersion("doServiceInterceptor Hello World !");
+		Object result = homeService.toHome(homeVo);
+		return result;
+	}
+	
+	/**
+	 * 测试webmvc中的interceptor
+	 * @return
+	 */
+	@RequestMapping("doWebInterceptor/{version}")
+	public @ResponseBody Object doWebInterceptor(@PathVariable("version") String version){
+		HomeVo homeVo = new HomeVo();
+		homeVo.setHost("127.0.0.1");
+		homeVo.setVersion("doWebInterceptor Hello World ! "+version );
 		return homeService.toHome(homeVo);
 	}
 	

@@ -1,6 +1,7 @@
 package com.nameless.service.interceptor;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -22,28 +23,36 @@ public class ServiceInterceptor {
 	public void logging(){}
 	
 	@AfterReturning("logging()")
-	public void doAfterReturn(JoinPoint joinPoint){
-		System.out.println("----- doAfterReturn -----");
+	public void doAfterReturn(JoinPoint joinPoint) throws Throwable{
+		//TODO System.out.println("----- doAfterReturn ["+joinPoint.getClass()+"]-----");
 	}
 	
 	@After("logging()")
-	public void doAfter(JoinPoint joinPoint){
-		System.out.println("----- doAfter -----");
+	public void doAfter(JoinPoint joinPoint) throws Throwable{
+		//TODO System.out.println("----- doAfter ["+joinPoint.getClass()+"]-----");
 	}
 	
 	@Before("logging()")
 	public void doBefore(JoinPoint joinPoint){
-		System.out.println("----- doBefore -----");
+		//TODO System.out.println("----- doBefore ["+joinPoint.getClass()+"]-----");
 	}
 	
 	@AfterThrowing("logging()")
 	public void doAfterThrowing() {
-		System.out.println("----- doAfterThrowing -----");
+		//TODO System.out.println("----- doAfterThrowing -----");
 	}
 	
 	@Around("logging()")
-	public void doAround() {
-		System.out.println("----- doAround -----");
+	public Object doAround(ProceedingJoinPoint joinPoint) {
+		System.out.println("----- doAround ["+joinPoint.getClass()+"] -----");
+		Object result = null;
+		try {
+			result = joinPoint.proceed(joinPoint.getArgs());
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
 }

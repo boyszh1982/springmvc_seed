@@ -56,7 +56,7 @@
 	
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/version/*"/>
+			<mvc:mapping path="/doWebInterceptor/*"/>
 			<bean class="com.nameless.web.interceptor.HomeInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
